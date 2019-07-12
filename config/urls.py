@@ -13,15 +13,15 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path("users/", include("users.urls", namespace="users")),
+    path("users/", include("animal_lib.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Third Party apps
-    path("comments/", include("django_comments.urls")),
+    #path("comments/", include("django_comments.urls")),
     #path("graphql/", GraphQLView.as_view(graphiql=True)),
     path("markdownx/", include("markdownx.urls")),
     # Local apps here
     #path("notifications/", include("notifications.urls", namespace="notifications")),
-    path("articles/", include("articles.urls", namespace="articles")),
+    path("articles/", include("animal_lib.articles.urls", namespace="articles")),
     #path("news/", include("news.urls", namespace="news")),
     #path("messages/", include("messager.urls", namespace="messager")),
     #path("qa/", include("qa.urls", namespace="qa")),

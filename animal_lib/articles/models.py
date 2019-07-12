@@ -59,10 +59,10 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(f"{self.user.username}-{self.title}",
-                                to_lower=True, max_length=80)
+            self.slug = slugify(f"{self.user.username}-{self.title}", max_length=80)
         super().save(*args, **kwargs)
 
     def get_markdown(self):

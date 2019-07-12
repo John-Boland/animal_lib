@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, ListView, UpdateView, DetailView
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from animal_lib.helpers import AuthorRequiredMixin
-from .models import Article
-from .forms import ArticleForm
+from animal_lib.articles.models import Article
+from animal_lib.articles.forms import ArticleForm
 
 class ArticleListView(LoginRequiredMixin, ListView):
     """Basic ListView implementation to call the published articles list."""
@@ -28,7 +28,7 @@ class DraftListView(ArticleListView):
     def get_queryset(self, **kwargs):
         return Article.objects.get_drafts()
 
-class CreateArticleView(LoginRequiredMixin, ListView):
+class CreateArticleView(LoginRequiredMixin, CreateView):
     """Basic CreateView implementation to create new articles."""
     model = Article
     message = _("Your article has been created.")
