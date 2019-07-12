@@ -63,7 +63,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "django.contrib.humanize", # Handy template tags
+    "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
 ]
 THIRD_PARTY_APPS = [
@@ -135,7 +135,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'graphene_django_tools.dataloader.middleware.DataLoaderMiddleware',
+
 ]
 
 # STATIC
@@ -266,5 +266,6 @@ ACCOUNT_ADAPTER = "animal_lib.users.adapters.AccountAdapter"
 SOCIALACCOUNT_ADAPTER = "animal_lib.users.adapters.SocialAccountAdapter"
 
 
-# Your stuff...
-# ------------------------------------------------------------------------------
+GRAPHENE = {
+    'SCHEMA': 'animal_lib.schema.schema'
+}

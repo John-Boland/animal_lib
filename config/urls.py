@@ -20,12 +20,12 @@ urlpatterns = [
     #path("graphql/", GraphQLView.as_view(graphiql=True)),
     path("markdownx/", include("markdownx.urls")),
     # Local apps here
-    path("notifications/", include("notifications.urls", namespace="notifications")),
+    #path("notifications/", include("notifications.urls", namespace="notifications")),
     path("articles/", include("articles.urls", namespace="articles")),
-    path("news/", include("news.urls", namespace="news")),
-    path("messages/", include("messager.urls", namespace="messager")),
-    path("qa/", include("qa.urls", namespace="qa")),
-    path("search/", include("search.urls", namespace="search")),
+    #path("news/", include("news.urls", namespace="news")),
+    #path("messages/", include("messager.urls", namespace="messager")),
+    #path("qa/", include("qa.urls", namespace="qa")),
+    #path("search/", include("search.urls", namespace="search")),
 
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
