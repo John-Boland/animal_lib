@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from django.contrib import messages from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, ListView, UpdateView, DetailView
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from animal_liberation.helpers import AuthorRequiredMixin
-from animal_liberation.articles.models import Article
-from animal_liberation.articles.forms import ArticleForm
+from animal_lib.helpers import AuthorRequiredMixin
+from .models import Article
+from .forms import ArticleForm
 
 class ArticleListView(LoginRequiredMixin, ListView):
     """Basic ListView implementation to call the published articles list."""

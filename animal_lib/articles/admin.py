@@ -1,5 +1,5 @@
 from django.contrib import admin
-from animal_liberation.articles.models import Article
+from .models import Article
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):

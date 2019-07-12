@@ -25,7 +25,7 @@ class AuthorRequiredMixin(View):
     of the object to be edited or updated."""
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
-        if obj,user != self.request.user:
+        if obj.user != self.request.user:
             raise PermissionDenied
 
         return super().dispatch(request, *args, **kwargs)

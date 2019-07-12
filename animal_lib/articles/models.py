@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.db.models import Count
-from django.utils.translation import ugettext_lazy_as
+from django.utils.translation import ugettext_lazy as _
 
 from slugify import slugify
 
@@ -34,7 +34,7 @@ class ArticleQuerySet(models.query.QuerySet):
 class Article(models.Model):
     DRAFT = "D"
     PUBLISHED = "P"
-    STATUS - (
+    STATUS = (
         (DRAFT, ("Draft")),
         (PUBLISHED, ("Published")),
     )

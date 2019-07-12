@@ -2,7 +2,7 @@ from django import forms
 
 from markdownx.fields import MarkdownxFormField
 
-from animal_liberation.articles.models import Article
+from .models import Article
 
 class ArticleForm(forms.ModelForm):
     status = forms.CharField(widget=forms.HiddenInput())

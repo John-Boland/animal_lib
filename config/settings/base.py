@@ -68,15 +68,18 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
+    "sorl.thumbnail",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
+    "markdownx",
+    "taggit"
 ]
 
 LOCAL_APPS = [
     "animal_lib.users.apps.UsersConfig",
-    # Your stuff: custom apps go here
+    "articles.apps.ArticlesConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
