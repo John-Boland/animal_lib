@@ -15,7 +15,18 @@ urlpatterns = [
     # User management
     path("users/", include("users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    path("articles/", include("articles.urls", namespace="articles"))
+    # Third Party apps
+    path("comments/", include("django_comments.urls")),
+    #path("graphql/", GraphQLView.as_view(graphiql=True)),
+    path("markdownx/", include("markdownx.urls")),
+    # Local apps here
+    path("notifications/", include("notifications.urls", namespace="notifications")),
+    path("articles/", include("articles.urls", namespace="articles")),
+    path("news/", include("news.urls", namespace="news")),
+    path("messages/", include("messager.urls", namespace="messager")),
+    path("qa/", include("qa.urls", namespace="qa")),
+    path("search/", include("search.urls", namespace="search")),
+
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
