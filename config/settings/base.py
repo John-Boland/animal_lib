@@ -75,12 +75,13 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "rest_framework",
     "markdownx",
-    "taggit"
+    "taggit",
 ]
 
 LOCAL_APPS = [
     "animal_lib.users.apps.UsersConfig",
     "animal_lib.articles.apps.ArticlesConfig",
+    "animal_lib.qa.apps.QaConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

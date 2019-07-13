@@ -30,7 +30,17 @@ class QuestionAnsListView(QuestionIndexListView):
     """CBV to render a list view with all question which have been already
     marked as answered."""
     def get_queryset(self, **kwargs):
-        return Question.objects.get_answered())
+        return Question.objects.get_answered()
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context["active"] = "unanswered"
+        return context
+
+class QuestionListView(QuestionIndexListView):
+    """CBV to render a list view with all question which haven't been marked as answered."""
+    def get_queryset(self, **kwargs):
+        return Question.objects.get_unanswered()
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -53,6 +63,23 @@ class CreateQuestionView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        messages.success(self.request, self.message)
+        return reverse("qa:index_noans")
+
+class CreateAnswerView(LoginRequiredMixin, CreateView):
+    """
+    View to handle the creation of a new answer
+    """
+    model = Answer
+    fields = ["content",]
+    message = _("Thank you! Your answer has been posted.")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.question_id = self.kwargs["question_id"]
         return super().form_valid(form)
 
     def get_success_url(self):

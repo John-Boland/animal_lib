@@ -24,7 +24,7 @@ urlpatterns = [
     path("articles/", include("animal_lib.articles.urls", namespace="articles")),
     #path("news/", include("news.urls", namespace="news")),
     #path("messages/", include("messager.urls", namespace="messager")),
-    #path("qa/", include("qa.urls", namespace="qa")),
+    path("qa/", include("animal_lib.qa.urls", namespace="qa")),
     #path("search/", include("search.urls", namespace="search")),
 
     # Your stuff: custom urls includes go here
