@@ -32,7 +32,7 @@ $(function () {
         }
     });
 
-    $("#publish").click(function () {
+    $("#publish").onclick(function () {
         // function to operate the Publish button in the question form, marking
         // the question status as published.
         $("input[name='status']").val("O");
